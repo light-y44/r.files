@@ -1,0 +1,46 @@
+---
+title: "MTH208: Assignment 2"
+format: 
+  pdf:
+    documentclass: article
+editor: visual
+geometry: margin=1in
+header-includes:
+   - \usepackage{amsmath, amssymb, setspace}
+   - \onehalfspacing
+   - \usepackage{etoolbox} 
+   - \makeatletter 
+   - \preto{\@verbatim}{\topsep=3pt \partopsep=3pt } 
+   - \makeatother
+---
+
+Write a function `prop.grey` that calculates the proportion of pixels in a given image that are roughly a shade of grey. The function should take an `imager` image as input and then perform the following tasks:
+
+1.  Using function `round()` , round `imager` image array to a single decimal digit.
+
+2.  Calculate the proportion of pixels of the rounded image matrix that have all three channels the same. That is, find the proportion of pixels of the form $(a,a,a)$ for any $a \in [0,1]$.
+
+The function should take one argumenta; `img` which will be an `imager` image. [**Note:**`img` will not be a file name, but rather an an already loaded image using `imager` package.]{.underline}
+
+The function should look like
+
+```{r}
+#| eval: false
+prop.grey <- function(img)
+{
+  ...
+  ...
+  return(...)
+}
+```
+
+Copy and paste your entire function in the `assignment2.R` file on Github to submit the assignment. ONLY PASTE YOUR FUNCTION, AND NOTHING ELSE.
+
+**Note**: there is an image `campus.jpeg` available in the GitHub repository for you to test the function on. I may use any other image to calculate the require proportion for any color of my choice. Thus your function should work for any `imager` image and any color vector. To test your function, I will use commands like below:
+
+```{r}
+#| eval: false
+library(imager)
+pic <- load.image("my-pic.jpeg") # any random pic chosen by me
+prop.grey(pic)
+```
